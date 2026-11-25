@@ -72,10 +72,15 @@ app.use('/uploads', express.static(path.resolve('public/uploads')));
 app.use('/images', express.static(path.resolve('public/images')));
 
 import { initSearchEngine } from './src/services/search.service.js';
+import { ensureDeliveryRules } from './src/services/deliveryDefaults.service.js';
 
 // Database Connection
 connectDB().then(() => {
   initSearchEngine();
+  // The storefront shows a delivery estimate from these rules. If the table is
+  // empty (fresh database, or the seed was never run in production) every PIN
+  // would read "estimate not available", so make sure the defaults exist.
+  ensureDeliveryRules();
 });
 
 // API Routes

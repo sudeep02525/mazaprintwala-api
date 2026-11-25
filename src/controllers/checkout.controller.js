@@ -2,6 +2,7 @@ import CheckoutDraft from '../models/CheckoutDraft.js';
 import Cart from '../models/Cart.js';
 import Order from '../models/Order.js';
 import DeliveryRule from '../models/DeliveryRule.js';
+import { DEFAULT_DELIVERY_RULES } from '../services/deliveryDefaults.service.js';
 import Settings from '../models/Settings.js';
 import crypto from 'crypto';
 import { generateOrderNumber } from '../services/orderNumber.service.js';
@@ -210,11 +211,22 @@ export const getDeliveryMethods = async (req, res, next) => {
       return sendError(res, STATUS_CODES.BAD_REQUEST, 'Invalid Indian PIN code format.');
     }
 
-    const allRules = await DeliveryRule.find({ isActive: true });
+    let allRules = await DeliveryRule.find({ isActive: true });
+
+    // Safety net: if the collection is empty (fresh database, or the boot-time
+    // seeding could not write), fall back to the built-in defaults so the
+    // storefront never tells every visitor that delivery is unavailable.
+    if (allRules.length === 0) {
+      allRules = DEFAULT_DELIVERY_RULES;
+    }
+
     const eligibleRules = allRules.filter((rule) => {
-      if (!rule.pinCodePrefixes || rule.pinCodePrefixes.length === 0) return false;
-      if (rule.pinCodePrefixes.includes('*')) return true;
-      return rule.pinCodePrefixes.some((pref) => pinCode.startsWith(pref));
+      const prefixes = rule.pinCodePrefixes || [];
+      // An empty prefix list means "everywhere", which is what the admin form
+      // promises when it says "leave empty for all pincodes".
+      if (prefixes.length === 0) return true;
+      if (prefixes.includes('*')) return true;
+      return prefixes.some((pref) => pref && pinCode.startsWith(pref));
     });
 
     return sendSuccess(res, STATUS_CODES.OK, 'Delivery methods fetched successfully', {
