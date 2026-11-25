@@ -80,8 +80,13 @@ export const login = async (req, res, next) => {
       return sendError(res, STATUS_CODES.UNAUTHORIZED, ERROR_MESSAGES.INVALID_CREDENTIALS);
     }
 
+    // "Remember me on this browser": when it is off the cookies are session
+    // cookies, so closing the browser signs the customer out. When it is on the
+    // refresh cookie lives for 30 days.
+    const rememberMe = req.body?.rememberMe === true;
+
     const accessToken = generateAccessToken(user);
-    const refreshToken = generateRefreshToken(user);
+    const refreshToken = generateRefreshToken(user, rememberMe);
 
     user.refreshToken = refreshToken;
     await user.save();
@@ -92,14 +97,14 @@ export const login = async (req, res, next) => {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax',
-      maxAge: 60 * 60 * 1000,
+      ...(rememberMe ? { maxAge: 60 * 60 * 1000 } : {}),
     });
 
     res.cookie(refreshCookieName, refreshToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax',
-      maxAge: 30 * 24 * 60 * 60 * 1000,
+      ...(rememberMe ? { maxAge: 30 * 24 * 60 * 60 * 1000 } : {}),
     });
 
     const cartSessionId = req.cookies?.maaza_cart_session || req.headers['x-cart-session-id'];
@@ -175,12 +180,14 @@ export const refresh = async (req, res, next) => {
       return sendError(res, STATUS_CODES.UNAUTHORIZED, 'Invalid refresh token');
     }
 
+    const rememberMe = decoded.rm === true;
+
     const accessToken = generateAccessToken(user);
 
     // If refreshing with the active current token, rotate and grant 30s grace window for in-flight requests
     let outgoingRefreshToken = user.refreshToken;
     if (isCurrentToken) {
-      const newRefreshToken = generateRefreshToken(user);
+      const newRefreshToken = generateRefreshToken(user, rememberMe);
       user.previousRefreshToken = user.refreshToken;
       user.previousRefreshTokenExpiresAt = new Date(Date.now() + 30 * 1000); // 30 seconds grace
       user.refreshToken = newRefreshToken;
@@ -192,14 +199,14 @@ export const refresh = async (req, res, next) => {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax',
-      maxAge: 60 * 60 * 1000,
+      ...(rememberMe ? { maxAge: 60 * 60 * 1000 } : {}),
     });
 
     res.cookie(refreshCookieName, outgoingRefreshToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax',
-      maxAge: 30 * 24 * 60 * 60 * 1000,
+      ...(rememberMe ? { maxAge: 30 * 24 * 60 * 60 * 1000 } : {}),
     });
 
     return sendSuccess(res, STATUS_CODES.OK, 'Token refreshed successfully', {

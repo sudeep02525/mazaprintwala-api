@@ -23,10 +23,11 @@ export const generateAccessToken = (user) => {
   );
 };
 
-export const generateRefreshToken = (user) => {
+export const generateRefreshToken = (user, rememberMe = false) => {
   return jwt.sign(
     {
       id: user._id,
+      ...(rememberMe ? { rm: true } : {}),
     },
     getRefreshSecret(),
     { expiresIn: process.env.REFRESH_TOKEN_EXPIRES || '30d' }
