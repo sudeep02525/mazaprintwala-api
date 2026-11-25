@@ -16,10 +16,10 @@ const templatesData = [
     generateSvg: (bg, accent, text) => `
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350" width="100%" height="100%">
         <rect width="100%" height="100%" fill="${bg}" />
-        <text x="300" y="140" font-family="Georgia, serif" font-size="48" font-style="italic" fill="${accent}" text-anchor="middle">C &amp; C</text>
+        <text x="300" y="140" font-family="Georgia, serif" font-size="48" font-style="italic" fill="${accent}" text-anchor="middle">YOUR BRAND</text>
         <rect x="260" y="175" width="80" height="2" fill="${accent}" opacity="0.5" />
-        <text x="300" y="225" font-family="Arial, sans-serif" font-size="18" fill="${text}" text-anchor="middle" letter-spacing="4" opacity="0.9">BOUTIQUE</text>
-        <text x="300" y="305" font-family="Arial, sans-serif" font-size="14" fill="${accent}" text-anchor="middle" opacity="0.8">www.boutique.com</text>
+        <text x="300" y="225" font-family="Arial, sans-serif" font-size="18" fill="${text}" text-anchor="middle" letter-spacing="4" opacity="0.9">PRINTING</text>
+        <text x="300" y="305" font-family="Arial, sans-serif" font-size="14" fill="${accent}" text-anchor="middle" opacity="0.8">www.yourbrand.in</text>
       </svg>
     `,
     generateCanvasJson: (bg, accent, text) => ({
@@ -28,18 +28,18 @@ const templatesData = [
       height: 350,
       objects: [
         { type: "Rect", left: 0, top: 0, width: 600, height: 350, fill: bg, selectable: false, originX: "left", originY: "top" },
-        { type: "Textbox", left: 100, top: 90, width: 400, fontSize: 48, fontFamily: "Georgia", fontStyle: "italic", fill: accent, text: "C & C", textAlign: "center", originX: "left", originY: "top", id: "company_name" },
+        { type: "Textbox", left: 100, top: 90, width: 400, fontSize: 48, fontFamily: "Georgia", fontStyle: "italic", fill: accent, text: "YOUR BRAND", textAlign: "center", originX: "left", originY: "top", id: "company_name" },
         { type: "Rect", left: 260, top: 175, width: 80, height: 2, fill: accent, opacity: 0.5, originX: "left", originY: "top" },
-        { type: "Textbox", left: 100, top: 205, width: 400, fontSize: 18, fontFamily: "Arial", fill: text, text: "BOUTIQUE", textAlign: "center", originX: "left", originY: "top", id: "tagline" },
-        { type: "Textbox", left: 100, top: 285, width: 400, fontSize: 14, fontFamily: "Arial", fill: accent, text: "www.boutique.com", textAlign: "center", originX: "left", originY: "top", id: "website" }
+        { type: "Textbox", left: 100, top: 205, width: 400, fontSize: 18, fontFamily: "Arial", fill: text, text: "PRINTING", textAlign: "center", originX: "left", originY: "top", id: "tagline" },
+        { type: "Textbox", left: 100, top: 285, width: 400, fontSize: 14, fontFamily: "Arial", fill: accent, text: "www.yourbrand.in", textAlign: "center", originX: "left", originY: "top", id: "website" }
       ]
     }),
     generateSvgBack: (bg, accent, text) => `
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350" width="100%" height="100%">
         <rect width="100%" height="100%" fill="${bg}" />
-        <text x="300" y="150" font-family="Georgia, serif" font-size="52" font-style="italic" fill="${accent}" text-anchor="middle">C &amp; C</text>
+        <text x="300" y="150" font-family="Georgia, serif" font-size="52" font-style="italic" fill="${accent}" text-anchor="middle">YOUR BRAND</text>
         <rect x="250" y="180" width="100" height="2" fill="${accent}" opacity="0.6" />
-        <text x="300" y="230" font-family="Arial, sans-serif" font-size="14" fill="${text}" text-anchor="middle" letter-spacing="3" opacity="0.9">www.boutique.com</text>
+        <text x="300" y="230" font-family="Arial, sans-serif" font-size="14" fill="${text}" text-anchor="middle" letter-spacing="3" opacity="0.9">www.yourbrand.in</text>
       </svg>
     `,
     generateCanvasJsonBack: (bg, accent, text) => ({
@@ -48,15 +48,15 @@ const templatesData = [
       height: 350,
       objects: [
         { type: "Rect", left: 0, top: 0, width: 600, height: 350, fill: bg, selectable: false, originX: "left", originY: "top" },
-        { type: "Textbox", left: 100, top: 110, width: 400, fontSize: 52, fontFamily: "Georgia", fontStyle: "italic", fill: accent, text: "C & C", textAlign: "center", originX: "left", originY: "top", id: "company_name" },
+        { type: "Textbox", left: 100, top: 110, width: 400, fontSize: 52, fontFamily: "Georgia", fontStyle: "italic", fill: accent, text: "YOUR BRAND", textAlign: "center", originX: "left", originY: "top", id: "company_name" },
         { type: "Rect", left: 250, top: 180, width: 100, height: 2, fill: accent, opacity: 0.6, originX: "left", originY: "top" },
-        { type: "Textbox", left: 100, top: 215, width: 400, fontSize: 14, fontFamily: "Arial", fill: text, text: "www.boutique.com", textAlign: "center", originX: "left", originY: "top", id: "website" }
+        { type: "Textbox", left: 100, top: 215, width: 400, fontSize: 14, fontFamily: "Arial", fill: text, text: "www.yourbrand.in", textAlign: "center", originX: "left", originY: "top", id: "website" }
       ]
     }),
     fields: [
-      { key: 'company_name', label: 'Company Name', type: 'TEXT', defaultValue: 'C & C' },
-      { key: 'tagline', label: 'Tagline', type: 'TEXT', defaultValue: 'BOUTIQUE' },
-      { key: 'website', label: 'Website', type: 'TEXT', defaultValue: 'www.boutique.com' }
+      { key: 'company_name', label: 'Company Name', type: 'TEXT', defaultValue: 'YOUR BRAND' },
+      { key: 'tagline', label: 'Tagline', type: 'TEXT', defaultValue: 'PRINTING' },
+      { key: 'website', label: 'Website', type: 'TEXT', defaultValue: 'www.yourbrand.in' }
     ]
   },
   {
@@ -73,10 +73,10 @@ const templatesData = [
         <rect x="0" y="0" width="600" height="160" fill="${bg}" />
         <circle cx="65" cy="65" r="25" fill="#ffffff" />
         <text x="65" y="75" font-family="Arial, sans-serif" font-size="30" font-weight="bold" fill="${bg}" text-anchor="middle">V</text>
-        <text x="40" y="235" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="${text}">VANGUARD</text>
+        <text x="40" y="235" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="${text}">YOUR BRAND</text>
         <text x="40" y="270" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="${bg}">CREATIVE AGENCY</text>
-        <text x="40" y="315" font-family="Arial, sans-serif" font-size="14" fill="#64748b">New York, NY</text>
-        <text x="560" y="315" font-family="Arial, sans-serif" font-size="14" fill="#64748b" text-anchor="end">vanguard.io</text>
+        <text x="40" y="315" font-family="Arial, sans-serif" font-size="14" fill="#64748b">Mumbai, MH</text>
+        <text x="560" y="315" font-family="Arial, sans-serif" font-size="14" fill="#64748b" text-anchor="end">yourbrand.in</text>
       </svg>
     `,
     generateCanvasJson: (bg, accent, text) => ({
@@ -88,10 +88,10 @@ const templatesData = [
         { type: "Rect", left: 0, top: 0, width: 600, height: 160, fill: bg, originX: "left", originY: "top" },
         { type: "Circle", left: 40, top: 40, radius: 25, fill: "#ffffff", originX: "left", originY: "top" },
         { type: "Textbox", left: 40, top: 47, width: 50, fontSize: 30, fontWeight: "bold", fontFamily: "Arial", fill: bg, text: "V", textAlign: "center", originX: "left", originY: "top", id: "logo_letter" },
-        { type: "Textbox", left: 40, top: 200, width: 350, fontSize: 32, fontWeight: "900", fontFamily: "Arial", fill: text, text: "VANGUARD", originX: "left", originY: "top", id: "company_name" },
+        { type: "Textbox", left: 40, top: 200, width: 350, fontSize: 32, fontWeight: "900", fontFamily: "Arial", fill: text, text: "YOUR BRAND", originX: "left", originY: "top", id: "company_name" },
         { type: "Textbox", left: 40, top: 250, width: 350, fontSize: 16, fontWeight: "bold", fontFamily: "Arial", fill: bg, text: "CREATIVE AGENCY", originX: "left", originY: "top", id: "tagline" },
-        { type: "Textbox", left: 40, top: 300, width: 220, fontSize: 14, fontFamily: "Arial", fill: "#64748b", text: "New York, NY", originX: "left", originY: "top", id: "address" },
-        { type: "Textbox", left: 340, top: 300, width: 220, fontSize: 14, fontFamily: "Arial", fill: "#64748b", text: "vanguard.io", textAlign: "right", originX: "left", originY: "top", id: "website" }
+        { type: "Textbox", left: 40, top: 300, width: 220, fontSize: 14, fontFamily: "Arial", fill: "#64748b", text: "Mumbai, MH", originX: "left", originY: "top", id: "address" },
+        { type: "Textbox", left: 340, top: 300, width: 220, fontSize: 14, fontFamily: "Arial", fill: "#64748b", text: "yourbrand.in", textAlign: "right", originX: "left", originY: "top", id: "website" }
       ]
     }),
     generateSvgBack: (bg, accent, text) => `
@@ -99,8 +99,8 @@ const templatesData = [
         <rect width="100%" height="100%" fill="${bg}" />
         <circle cx="300" cy="130" r="36" fill="#ffffff" />
         <text x="300" y="143" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="${bg}" text-anchor="middle">V</text>
-        <text x="300" y="215" font-family="Arial, sans-serif" font-size="24" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="2">VANGUARD</text>
-        <text x="300" y="255" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ffffff" opacity="0.8" text-anchor="middle">vanguard.io</text>
+        <text x="300" y="215" font-family="Arial, sans-serif" font-size="24" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="2">YOUR BRAND</text>
+        <text x="300" y="255" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ffffff" opacity="0.8" text-anchor="middle">yourbrand.in</text>
       </svg>
     `,
     generateCanvasJsonBack: (bg, accent, text) => ({
@@ -111,16 +111,16 @@ const templatesData = [
         { type: "Rect", left: 0, top: 0, width: 600, height: 350, fill: bg, selectable: false, originX: "left", originY: "top" },
         { type: "Circle", left: 264, top: 94, radius: 36, fill: "#ffffff", originX: "left", originY: "top" },
         { type: "Textbox", left: 264, top: 104, width: 72, fontSize: 40, fontWeight: "bold", fontFamily: "Arial", fill: bg, text: "V", textAlign: "center", originX: "left", originY: "top", id: "logo_letter" },
-        { type: "Textbox", left: 100, top: 195, width: 400, fontSize: 24, fontWeight: "900", fontFamily: "Arial", fill: "#ffffff", text: "VANGUARD", textAlign: "center", originX: "left", originY: "top", id: "company_name" },
-        { type: "Textbox", left: 100, top: 240, width: 400, fontSize: 13, fontFamily: "Arial", fill: "#ffffff", opacity: 0.8, text: "vanguard.io", textAlign: "center", originX: "left", originY: "top", id: "website" }
+        { type: "Textbox", left: 100, top: 195, width: 400, fontSize: 24, fontWeight: "900", fontFamily: "Arial", fill: "#ffffff", text: "YOUR BRAND", textAlign: "center", originX: "left", originY: "top", id: "company_name" },
+        { type: "Textbox", left: 100, top: 240, width: 400, fontSize: 13, fontFamily: "Arial", fill: "#ffffff", opacity: 0.8, text: "yourbrand.in", textAlign: "center", originX: "left", originY: "top", id: "website" }
       ]
     }),
     fields: [
       { key: 'logo_letter', label: 'Logo Letter', type: 'TEXT', defaultValue: 'V' },
-      { key: 'company_name', label: 'Company Name', type: 'TEXT', defaultValue: 'VANGUARD' },
+      { key: 'company_name', label: 'Company Name', type: 'TEXT', defaultValue: 'YOUR BRAND' },
       { key: 'tagline', label: 'Tagline', type: 'TEXT', defaultValue: 'CREATIVE AGENCY' },
-      { key: 'address', label: 'Address', type: 'TEXT', defaultValue: 'New York, NY' },
-      { key: 'website', label: 'Website', type: 'TEXT', defaultValue: 'vanguard.io' }
+      { key: 'address', label: 'Address', type: 'TEXT', defaultValue: 'Mumbai, MH' },
+      { key: 'website', label: 'Website', type: 'TEXT', defaultValue: 'yourbrand.in' }
     ]
   },
   {
@@ -134,11 +134,11 @@ const templatesData = [
     generateSvg: (bg, accent, text) => `
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350" width="100%" height="100%">
         <rect width="100%" height="100%" fill="${bg}" />
-        <text x="40" y="80" font-family="Arial, sans-serif" font-size="32" font-weight="bold" letter-spacing="4" fill="${text}">NEXUS</text>
+        <text x="40" y="80" font-family="Arial, sans-serif" font-size="32" font-weight="bold" letter-spacing="4" fill="${text}">YOUR BRAND</text>
         <rect x="502" y="32" width="36" height="36" fill="${accent}" transform="rotate(45 520 50)" />
-        <text x="560" y="235" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="${text}" text-anchor="end">ALEX CHEN</text>
-        <text x="560" y="270" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="end">SOFTWARE ENGINEER</text>
-        <text x="560" y="310" font-family="Arial, sans-serif" font-size="14" fill="#64748b" text-anchor="end">+1 555 0199 • alex@nexus.dev</text>
+        <text x="560" y="235" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="${text}" text-anchor="end">YOUR NAME</text>
+        <text x="560" y="270" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="end">DESIGNATION</text>
+        <text x="560" y="310" font-family="Arial, sans-serif" font-size="14" fill="#64748b" text-anchor="end">+91 90000 00000 • info@yourbrand.in</text>
       </svg>
     `,
     generateCanvasJson: (bg, accent, text) => ({
@@ -147,19 +147,19 @@ const templatesData = [
       height: 350,
       objects: [
         { type: "Rect", left: 0, top: 0, width: 600, height: 350, fill: bg, selectable: false, originX: "left", originY: "top" },
-        { type: "Textbox", left: 40, top: 50, width: 250, fontSize: 32, fontWeight: "bold", fontFamily: "Arial", fill: text, text: "NEXUS", originX: "left", originY: "top", id: "company_name" },
+        { type: "Textbox", left: 40, top: 50, width: 250, fontSize: 32, fontWeight: "bold", fontFamily: "Arial", fill: text, text: "YOUR BRAND", originX: "left", originY: "top", id: "company_name" },
         { type: "Rect", left: 520, top: 50, width: 36, height: 36, fill: accent, angle: 45, originX: "center", originY: "center" },
-        { type: "Textbox", left: 240, top: 210, width: 320, fontSize: 24, fontWeight: "bold", fontFamily: "Arial", fill: text, text: "ALEX CHEN", textAlign: "right", originX: "left", originY: "top", id: "person_name" },
-        { type: "Textbox", left: 240, top: 250, width: 320, fontSize: 16, fontFamily: "Arial", fill: "#94a3b8", text: "SOFTWARE ENGINEER", textAlign: "right", originX: "left", originY: "top", id: "job_title" },
-        { type: "Textbox", left: 240, top: 295, width: 320, fontSize: 14, fontFamily: "Arial", fill: "#64748b", text: "+1 555 0199 • alex@nexus.dev", textAlign: "right", originX: "left", originY: "top", id: "contact_info" }
+        { type: "Textbox", left: 240, top: 210, width: 320, fontSize: 24, fontWeight: "bold", fontFamily: "Arial", fill: text, text: "YOUR NAME", textAlign: "right", originX: "left", originY: "top", id: "person_name" },
+        { type: "Textbox", left: 240, top: 250, width: 320, fontSize: 16, fontFamily: "Arial", fill: "#94a3b8", text: "DESIGNATION", textAlign: "right", originX: "left", originY: "top", id: "job_title" },
+        { type: "Textbox", left: 240, top: 295, width: 320, fontSize: 14, fontFamily: "Arial", fill: "#64748b", text: "+91 90000 00000 • info@yourbrand.in", textAlign: "right", originX: "left", originY: "top", id: "contact_info" }
       ]
     }),
     generateSvgBack: (bg, accent, text) => `
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350" width="100%" height="100%">
         <rect width="100%" height="100%" fill="${bg}" />
         <rect x="282" y="100" width="36" height="36" fill="${accent}" transform="rotate(45 300 118)" />
-        <text x="300" y="195" font-family="Arial, sans-serif" font-size="30" font-weight="bold" letter-spacing="4" fill="${text}" text-anchor="middle">NEXUS</text>
-        <text x="300" y="240" font-family="Arial, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">www.nexus.dev</text>
+        <text x="300" y="195" font-family="Arial, sans-serif" font-size="30" font-weight="bold" letter-spacing="4" fill="${text}" text-anchor="middle">YOUR BRAND</text>
+        <text x="300" y="240" font-family="Arial, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">www.yourbrand.in</text>
       </svg>
     `,
     generateCanvasJsonBack: (bg, accent, text) => ({
@@ -169,15 +169,15 @@ const templatesData = [
       objects: [
         { type: "Rect", left: 0, top: 0, width: 600, height: 350, fill: bg, selectable: false, originX: "left", originY: "top" },
         { type: "Rect", left: 300, top: 118, width: 36, height: 36, fill: accent, angle: 45, originX: "center", originY: "center" },
-        { type: "Textbox", left: 100, top: 170, width: 400, fontSize: 30, fontWeight: "bold", fontFamily: "Arial", fill: text, text: "NEXUS", textAlign: "center", originX: "left", originY: "top", id: "company_name" },
-        { type: "Textbox", left: 100, top: 225, width: 400, fontSize: 13, fontFamily: "Arial", fill: "#94a3b8", text: "www.nexus.dev", textAlign: "center", originX: "left", originY: "top", id: "website" }
+        { type: "Textbox", left: 100, top: 170, width: 400, fontSize: 30, fontWeight: "bold", fontFamily: "Arial", fill: text, text: "YOUR BRAND", textAlign: "center", originX: "left", originY: "top", id: "company_name" },
+        { type: "Textbox", left: 100, top: 225, width: 400, fontSize: 13, fontFamily: "Arial", fill: "#94a3b8", text: "www.yourbrand.in", textAlign: "center", originX: "left", originY: "top", id: "website" }
       ]
     }),
     fields: [
-      { key: 'company_name', label: 'Company Name', type: 'TEXT', defaultValue: 'NEXUS' },
-      { key: 'person_name', label: 'Person Name', type: 'TEXT', defaultValue: 'ALEX CHEN' },
-      { key: 'job_title', label: 'Job Title', type: 'TEXT', defaultValue: 'SOFTWARE ENGINEER' },
-      { key: 'contact_info', label: 'Contact Info', type: 'TEXT', defaultValue: '+1 555 0199 • alex@nexus.dev' }
+      { key: 'company_name', label: 'Company Name', type: 'TEXT', defaultValue: 'YOUR BRAND' },
+      { key: 'person_name', label: 'Person Name', type: 'TEXT', defaultValue: 'YOUR NAME' },
+      { key: 'job_title', label: 'Job Title', type: 'TEXT', defaultValue: 'DESIGNATION' },
+      { key: 'contact_info', label: 'Contact Info', type: 'TEXT', defaultValue: '+91 90000 00000 • info@yourbrand.in' }
     ]
   }
 ];
@@ -190,9 +190,12 @@ async function run() {
   await mongoose.connect(process.env.MONGO_URI);
   console.log('Connected to DB');
 
-  // Delete ALL existing templates
-  await Template.deleteMany({});
-  console.log('Deleted all old templates globally');
+  // Only remove the demo layouts this script created. Real templates added
+  // later through the admin panel must never be deleted by a re-run.
+  const demoResult = await Template.deleteMany({
+    name: { $in: templatesData.map((t) => t.name) },
+  });
+  console.log(`Removed ${demoResult.deletedCount} demo template(s), real templates untouched`);
 
   // Find all products
   const products = await Product.find({});
@@ -226,7 +229,7 @@ async function run() {
         colorVariants: colorVariants,
         editableFields: tData.fields,
         isActive: true,
-        isDemoData: false
+        isDemoData: true
       });
       
       await t.save();
